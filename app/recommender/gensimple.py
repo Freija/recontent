@@ -16,7 +16,6 @@ class GenSimple(Recommender):
 
     def __init__(self, corpus_name):
         self.load_corpus(corpus_name)
-        pass
 
     def load_corpus(self, corpus_name):
         ''' This is were we load the corpus files. This needs to be
