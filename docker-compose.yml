@@ -6,11 +6,9 @@ services:
       - db
     image: "freija/recontent"
     ports:
-      - "127.0.0.1:5000:5000"
+      - "127.0.0.1:5010:5010"
     volumes:
       - "./data:/data:ro"
-    labels:
-      - "traefik.port=5000"
   db:
     image: mongo:3.0.2
     volumes:
