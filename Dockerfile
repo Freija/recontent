@@ -1,6 +1,6 @@
 FROM python:3.5
 MAINTAINER Freija Descamps <freija@gmail.com>
-EXPOSE 5000
+EXPOSE 5010
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 COPY app/ ./app/
