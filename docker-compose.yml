@@ -5,14 +5,13 @@ services:
     depends_on:
       - db
     image: "freija/recontent"
-    ports:
-      - "127.0.0.1:5010:5010"
     volumes:
       - "./data:/data:ro"
   db:
     image: mongo:3.0.2
     volumes:
       - "./data/db:/data/db"
+    command: ["mongod", "--smallfiles"]
 # Add these for testing
 #  console:
 #    build: tools/console
