@@ -1,9 +1,9 @@
 FROM python:3.5
 MAINTAINER Freija Descamps <freija@gmail.com>
-EXPOSE 5010
+COPY data/ /opt/app/
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
-COPY app/ ./app/
-WORKDIR /data
+COPY app/ /opt/app/
+WORKDIR /opt/app
 USER nobody
-ENTRYPOINT ["python", "../app/app.py"]
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi

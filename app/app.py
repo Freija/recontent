@@ -16,12 +16,14 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import recordclicks
 import clickstats
+import os
+database = os.environ.get('MONGODB')
 
 app = Flask(__name__)
 api = Api(app)
 
-client = MongoClient('db')
-db = client.clickdb
+client = MongoClient(database)
+db = client.get_default_database()
 clicks = db.clicks
 
 
