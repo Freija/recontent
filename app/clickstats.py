@@ -2,9 +2,11 @@ import json
 from bson import json_util
 import pymongo
 from pymongo import MongoClient
+import os
+database = os.environ.get('MONGODB')
 
-client = MongoClient('db')
-db = client.clickdb
+client = MongoClient(database)
+db = client.get_default_database()
 clicks = db.clicks
 
 
